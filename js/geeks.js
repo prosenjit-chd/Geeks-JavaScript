@@ -32,8 +32,9 @@
       var recomendationImgAuthor = ["avatar-4.jpg", "avatar-2.jpg", "avatar-3.jpg", "avatar-4.jpg"]
       var recomendationLevel = ["Intermediate", "Advance", "Beginner", " Intermediate"]
       var recomendationCourseTime = ["2h 30m", "2h 50m", "1h 25m", "2h 30m"]
+      var recomendationStar = [4, 5, 3, 4]
 
-      function recomendationCard(recomendationTitleName, recomendationAuthorName, recomendationImgTitle, recomendationImgAuthor, recomendationLevel, recomendationCourseTime){
+      function recomendationCard(recomendationTitleName, recomendationAuthorName, recomendationImgTitle, recomendationImgAuthor, recomendationLevel, recomendationCourseTime, recomendationStar){
         return(
           `
           <div class="col ">
@@ -72,7 +73,7 @@
       }
       var recomendationtemp = document.getElementById("recommended-section")
       for(i=0; i<=3; i++){
-        recomendationtemp.innerHTML += recomendationCard(recomendationTitleName[i], recomendationAuthorName[i], recomendationImgTitle[i], recomendationImgAuthor[i], recomendationLevel[i], recomendationCourseTime[i]);
+        recomendationtemp.innerHTML += recomendationCard(recomendationTitleName[i], recomendationAuthorName[i], recomendationImgTitle[i], recomendationImgAuthor[i], recomendationLevel[i], recomendationCourseTime[i], recomendationStar[i]);
       }
 
       //  **********Recommended to you Section End Here********
@@ -86,8 +87,27 @@
       var MostPopularImgAuthor = ["avatar-8.jpg", "avatar-6.jpg", "avatar-7.jpg", "avatar-8.jpg"]
       var MostPopularLevel = ["Intermediate", "Advance", "Beginner", " Intermediate"]
       var MostPopularCourseTime = ["3h 30m", "1h 50m", "2h 25m", "3h 30m"]
+      var MostpopularStart = [4, 5, 3, 4]
 
-      function MostPopularCard(MostPopularTitleName, MostPopularAuthorName, MostPopularImgTitle, MostPopularImgAuthor, MostPopularLevel, MostPopularCourseTime){
+      function MostPopularCard(MostPopularTitleName, MostPopularAuthorName, MostPopularImgTitle, MostPopularImgAuthor, MostPopularLevel, MostPopularCourseTime, MostpopularStart){
+       
+       var  filledStar = MostpopularStart
+       var blankStar = 5- filledStar
+
+       var fillStarDesign = ''
+       var blankStarDesign = ''
+
+       for (var i =0; i<filledStar; i++){
+        fillStarDesign += '<i class="full-star fas fa-star"></i>'
+       }
+       for (var i =0; i<blankStar; i++){
+        blankStarDesign += '<i class="full-star far fa-star"></i>'
+       }
+
+
+       
+       console.log(fillStarDesign)
+       
         return(
           `
           <div class="col ">
@@ -99,12 +119,9 @@
                           <i class=" fas fa-clock"></i> <span class="card-md-icon-1">${MostPopularCourseTime}</span><i class="card-md-icon-2 far fa-chart-bar"></i>${MostPopularLevel}
                         </div>
                         <div class="card-details">
-                          <i class="full-star fas fa-star"></i>
-                          <i class="full-star fas fa-star"></i>
-                          <i class="full-star fas fa-star"></i>
-                          <i class="full-star fas fa-star"></i>
-                          <i class="empty-star fas fa-star"></i>
-                          <span>4.5 <span>(13,245)</span></span>
+                          ${fillStarDesign}
+                          ${blankStarDesign}
+                          <span>${MostpopularStart} <span>(13,245)</span></span>
                       </div>
                       </div>
                       <div class="card-footer bg-white">
@@ -126,55 +143,12 @@
       }
       var MostPopulartemp = document.getElementById("most-popular-section")
       for(i=0; i<=3; i++){
-        MostPopulartemp.innerHTML += MostPopularCard(MostPopularTitleName[i], MostPopularAuthorName[i], MostPopularImgTitle[i], MostPopularImgAuthor[i], MostPopularLevel[i], MostPopularCourseTime[i]);
+        MostPopulartemp.innerHTML += MostPopularCard(MostPopularTitleName[i], MostPopularAuthorName[i], MostPopularImgTitle[i], MostPopularImgAuthor[i], MostPopularLevel[i], MostPopularCourseTime[i], MostpopularStart[i]);
       }
 
       //  **********Most Popular to you Section End Here********
 
       //  **********Trending to you Section Start Here********
-
-      var recomendationTitleName = ["The Python Course: build web application", "GraphQL: introduction to graphQL for beginners", "Angular - the complete guide for beginner", "The Python Course: build web application"]
-      var recomendationAuthorName = ["Claire Robertson", "Ted Hawkins", "Juanita Bell", "Claire Robertson"]
-      var recomendationImgTitle = ["course-python.jpg", "course-graphql.jpg", "course-angular.jpg", "course-python.jpg"]
-      var recomendationImgAuthor = ["avatar-4.jpg", "avatar-2.jpg", "avatar-3.jpg", "avatar-4.jpg"]
-      var recomendationLevel = ["Intermediate", "Advance", "Beginner", " Intermediate"]
-      var recomendationCourseTime = ["2h 30m", "2h 50m", "1h 25m", "2h 30m"]
-
-      function recomendationCard(recomendationTitleName, recomendationAuthorName, recomendationImgTitle, recomendationImgAuthor, recomendationLevel, recomendationCourseTime){
-        return(
-         `        <div class="col ">
-                    <div class="card sec-card border-0">
-                      <img class="card-img-ft" src="https://codescandy.com/geeks-bootstrap-5/assets/images/course/${recomendationImgTitle}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">${recomendationTitleName}</h5>
-                        <div class="card-details">
-                          <i class=" fas fa-clock"></i> <span class="card-md-icon-1">${recomendationCourseTime}</span><i class="card-md-icon-2 far fa-chart-bar"></i>${recomendationLevel}
-                        </div>
-                        <div class="card-details">
-                          <i class="full-star fas fa-star"></i>
-                          <i class="full-star fas fa-star"></i>
-                          <i class="full-star fas fa-star"></i>
-                          <i class="full-star fas fa-star"></i>
-                          <i class="empty-star fas fa-star"></i>
-                          <span>4.5 <span>(13,245)</span></span>
-                      </div>
-                      </div>
-                      <div class="card-footer bg-white">
-                          <div class="footer-details">
-                              <div class="footer-athor">
-                                  <img class="footer-image" src="https://codescandy.com/geeks-bootstrap-5/assets/images/avatar/${recomendationImgAuthor}" alt="">
-                                  <small>${recomendationAuthorName}</small>
-                              </div>
-                              <div>
-                                  <i class="far fa-bookmark"></i>
-                              </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-          `
-        )
-      }
       var recomendationtemp = document.getElementById("trending-section")
       for(i=0; i<=3; i++){
         recomendationtemp.innerHTML += recomendationCard(recomendationTitleName[i], recomendationAuthorName[i], recomendationImgTitle[i], recomendationImgAuthor[i], recomendationLevel[i], recomendationCourseTime[i]);
